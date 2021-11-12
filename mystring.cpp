@@ -1,7 +1,7 @@
 /*
  * File Name:               mystring.cpp
  * Course:                  ENSF 614 - Fall 2021
- * Lab # and Assignment #:  Lab 6 Exercise A and B
+ * Lab # and Assignment #:  Lab 6 Exercise A
  * Lab section:             B01
  * Completed by:            Bhavyai Gupta
  * Submission Date:         November 16, 2021

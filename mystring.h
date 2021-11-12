@@ -1,7 +1,7 @@
 /*
  * File Name:               mystring.h
  * Course:                  ENSF 614 - Fall 2021
- * Lab # and Assignment #:  Lab 6 Exercise A and B
+ * Lab # and Assignment #:  Lab 6 Exercise A
  * Lab section:             B01
  * Completed by:            Bhavyai Gupta
  * Submission Date:         November 16, 2021
@@ -38,25 +38,31 @@ public:
     // REQUIRES: rhs is reference to a Mystring as a source
     // PROMISES: to make this-object (object that this is pointing to, as  a copy
     //           of rhs.
+
     int length() const;
     // PROMISES: Return value is number of chars in charsM.
+
     char get_char(int pos) const;
     // REQUIRES: pos >= 0 && pos < length()
     // PROMISES:
     // Return value is char at position pos.
     // (The first char in the charsM is at position 0.)
+
     const char *c_str() const;
     // PROMISES:
     //   Return value points to first char in built-in string
     //   containing the chars of the string object.
+
     void set_char(int pos, char c);
     // REQUIRES: pos >= 0 && pos < length(), c != '\0'
     // PROMISES: Character at position pos is set equal to c.
+
     Mystring &append(const Mystring &other);
     // PROMISES: extends the size of charsM to allow concatenate other.charsM to
     //           to the end of charsM. For example if charsM points to "ABC", and
     //          other.charsM points to XYZ, extends charsM to "ABCXYZ".
     //
+
     void set_str(char *s);
     // REQUIRES: s is a valid C++ string of characters (a built-in string)
     // PROMISES:copys s into charsM, if the length of s is less than or equal lengthM.

@@ -71,6 +71,7 @@ void DictionaryList::insert(const int &keyA, const Mystring &datumA)
     if (headM == 0 || keyA < headM->keyM)
     {
         headM = new Node(keyA, datumA, headM);
+        cout << "Insertion of " << datumA.c_str() << " at head" << endl;
         sizeM++;
     }
 
@@ -82,6 +83,7 @@ void DictionaryList::insert(const int &keyA, const Mystring &datumA)
     else
     {
         // Point ONE
+        cout << "Point one encountered \n";
         // if key is found in list, just overwrite data;
         for (Node *p = headM; p != 0; p = p->nextM)
         {
@@ -219,4 +221,32 @@ void DictionaryList::destroy()
 
     headM = 0;
     sizeM = 0;
+}
+
+ostream &operator<<(ostream &os, DictionaryList dl)
+{
+    dl.go_to_first();
+
+    while (dl.cursor_ok())
+    {
+        os << dl.cursor_key() << "  " << dl.cursor_datum() << endl;
+        dl.step_fwd();
+    }
+
+    return os;
+}
+
+const Mystring &DictionaryList::operator[](int i)
+{
+    int x = 0;
+
+    this->go_to_first();
+
+    while (x != i)
+    {
+        step_fwd();
+        x++;
+    }
+
+    return this->cursor_datum();
 }

@@ -27,7 +27,7 @@ int main()
 {
     DictionaryList dl = dictionary_tests();
 
-    // test_operator_overloading(dl);
+    test_operator_overloading(dl);
 
     return 0;
 }
@@ -125,12 +125,12 @@ void test_operator_overloading(DictionaryList &dl)
 
     char c = dl.cursor_datum()[1];
     cout << endl
-         << "The socond element of " << dl.cursor_datum() << " is: " << c;
+         << "The second element of " << dl.cursor_datum() << " is: " << c;
 
     dl.cursor_datum()[1] = 'o';
     c = dl.cursor_datum()[1];
     cout << endl
-         << "The socond element of " << dl.cursor_datum() << " is: " << c;
+         << "The second element of " << dl.cursor_datum() << " is: " << c;
 
     cout << endl
          << "\nUsing << to display key/datum pairs in a Dictionary list: \n";
@@ -179,6 +179,7 @@ void print(DictionaryList &dl)
 {
     if (dl.size() == 0)
         cout << "  List is EMPTY.\n";
+
     for (dl.go_to_first(); dl.cursor_ok(); dl.step_fwd())
     {
         cout << "  " << dl.cursor_key();

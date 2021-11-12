@@ -24,7 +24,7 @@ using namespace std;
 //    attached to any key/datum pair.  If a DictionaryList is empty, the
 //    cursor is automatically in the "off-list" state.
 
-#include "mystring.h"
+#include "mystring_B.h"
 
 // Edit these typedefs to change the key or datum types, if necessary.
 typedef int Key;
@@ -55,18 +55,23 @@ public:
     DictionaryList(const DictionaryList &source);
     DictionaryList &operator=(const DictionaryList &rhs);
     ~DictionaryList();
+
     int size() const;
     // PROMISES: Returns number of keys in the table.
+
     int cursor_ok() const;
     // PROMISES:
     //   Returns 1 if the cursor is attached to a key/datum pair,
     //   and 0 if the cursor is in the off-list state.
+
     const Key &cursor_key() const;
     // REQUIRES: cursor_ok()
     // PROMISES: Returns key of key/datum pair to which cursor is attached.
+
     const Datum &cursor_datum() const;
     // REQUIRES: cursor_ok()
     // PROMISES: Returns datum of key/datum pair to which cursor is attached.
+
     void insert(const Key &keyA, const Datum &datumA);
     // PROMISES:
     //   If keyA matches a key in the table, the datum for that
@@ -74,6 +79,7 @@ public:
     //   If keyA does not match an existing key, keyA and datumM are
     //   used to create a new key/datum pair in the table.
     //   In either case, the cursor goes to the off-list state.
+
     void remove(const Key &keyA);
     // PROMISES:
     //   If keyA matches a key in the table, the corresponding
@@ -101,6 +107,14 @@ public:
 
     void make_empty();
     // PROMISES: size() == 0.
+
+    friend ostream &operator<<(ostream &os, DictionaryList dl); // insertion operator
+    //  REQUIRES: dl is reference to a DictionaryList as a source
+    //  PROMISES: prints all the key/datum pairs in the DictionaryList to the stdout
+
+    const Mystring &operator[](int i);
+    //  REQUIRES: 0 <= i <= sizeM
+    //  PROMISES: returns a reference to the datum at index i of the DictionaryList
 
 private:
     int sizeM;

@@ -26,38 +26,14 @@ public class FiveRowsTable_Observer implements Observer {
     }
 
     public void display() {
-        StringBuffer sb = new StringBuffer();
+        for (int row = 0; row < 5; row++) {
+            for (int i = row; i < this.temp.size(); i = i + 5) {
+                System.out.printf("%.1f\t", this.temp.get(i));
+            }
 
-        for (int i = 0; i < this.temp.size(); i = i+5) {
-            sb.append(String.format("%.1f\t", this.temp.get(i)));
+            System.out.println();
         }
 
-        sb.append("\n");
-
-        for (int i = 1; i < this.temp.size(); i = i+5) {
-            sb.append(String.format("%.1f\t", this.temp.get(i)));
-        }
-
-        sb.append("\n");
-
-        for (int i = 2; i < this.temp.size(); i = i+5) {
-            sb.append(String.format("%.1f\t", this.temp.get(i)));
-        }
-
-        sb.append("\n");
-
-        for (int i = 3; i < this.temp.size(); i = i+5) {
-            sb.append(String.format("%.1f\t", this.temp.get(i)));
-        }
-
-        sb.append("\n");
-
-        for (int i = 4; i < this.temp.size(); i = i+5) {
-            sb.append(String.format("%.1f\t", this.temp.get(i)));
-        }
-
-        sb.append("\n");
-
-        System.out.println(sb.toString());
+        System.out.println();
     }
 }
